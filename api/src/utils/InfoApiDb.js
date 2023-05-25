@@ -72,3 +72,27 @@ module.exports = {
   cleanArrayDb,
   infoDb,
 };
+
+// const databasePokemons = cleanArrayDb(
+//   await Pokemon.findAll({
+//     where: {
+//       name: name,
+//     },
+//     include: {
+//       model: Type, // Corrección: Especificar el modelo Type
+//     },
+//   })
+// );
+
+// let apiPokemons = [];
+
+// try {
+//   const apiPokemonRaw = await axios.get(
+//     `https://pokeapi.co/api/v2/pokemon/${name}`
+//   );
+//   apiPokemons = [IdApi(apiPokemonRaw.data)];
+// } catch (error) {
+//   console.error("Error al obtener datos de la API:", error);
+// }
+
+// return [...databasePokemons, ...apiPokemons];

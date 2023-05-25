@@ -60,26 +60,23 @@ const searchgetPokemons = async (name) => {
   const databasePokemons = cleanArrayDb(
     await Pokemon.findAll({
       where: {
-        name: name,
+        name: { [Op.iLike]: "%" + name + "%" },
       },
       include: {
-        model: Type, // Corrección: Especificar el modelo Type
+        model: Type,
       },
     })
   );
 
-  let apiPokemons = [];
-
-  try {
+  if (databasePokemons.length > 0) {
+    return [...databasePokemons];
+  } else {
     const apiPokemonRaw = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${name}`
     );
-    apiPokemons = [IdApi(apiPokemonRaw.data)];
-  } catch (error) {
-    console.error("Error al obtener datos de la API:", error);
+    const apiPokemons = [IdApi(apiPokemonRaw.data)];
+    return [...apiPokemons];
   }
-
-  return [...databasePokemons, ...apiPokemons];
 };
 
 //------>>>//--BUSCA POKEMON POR ID--//<<<------//
