@@ -28,11 +28,11 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      defending: {
+      defense: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      spees: {
+      speed: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },

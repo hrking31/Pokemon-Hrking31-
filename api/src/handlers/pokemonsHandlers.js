@@ -5,36 +5,32 @@ const {
   searchgetPokemons,
 } = require("../controllers/pokemonsControllers");
 
+//------>>>//--CREA POKEMON en DB--//<<<------//
 const postPokemons = async (req, res) => {
-  // const {
-  //   name,
-  //   description,
-  //   platforms,
-  //   image,
-  //   released,
-  //   rating,
-  //   genres,
-  //   videogameId,
-  // } = req.body;
-  // try {
-  //   const newVideogame = await createVideogame(
-  //     name,
-  //     description,
-  //     platforms,
-  //     image,
-  //     released,
-  //     rating,
-  //     genres
-  //   );
-  //   res.status(201).json(newVideogame);
-  // } catch (error) {
-  //   res.status(400).json({ error: error.message });
-  // }
+  const { name, image, life, attack, defense, speed, height, weight, types } =
+    req.body;
+  try {
+    const newPokemon = await createPokemon(
+      name,
+      image,
+      life,
+      attack,
+      defense,
+      speed,
+      height,
+      weight,
+      types
+    );
+    res.status(201).json(newPokemon);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 //------>>>//--BUSCA POKEMONS POR NOMBRE--//<<<------//
 const getPokemons = async (req, res) => {
   const { name } = req.query;
+
   try {
     const results = name
       ? await searchgetPokemons(name)

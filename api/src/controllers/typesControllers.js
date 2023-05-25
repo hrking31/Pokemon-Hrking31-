@@ -1,20 +1,16 @@
 const axios = require("axios");
-const { Pokemon, Type } = require("../db");
+const { Type } = require("../db");
 
 const createType = async () => {
-  // const genresApi = await axios.get(
-  //   `https://api.rawg.io/api/genres?key=${API_KEY}`
-  // );
-  // const genres = genresApi.data.results.map((genre) => ({
-  //   name: genre.name,
-  // }));
-  // genres.forEach(async (genre) => {
-  //   await Genre.findOrCreate({
-  //     where: { name: genre.name },
-  //   });
-  // });
-  // const allGenres = await Genre.findAll();
-  // return allGenres;
+  const typesApi = await axios.get(`https://pokeapi.co/api/v2/type`);
+  const types = typesApi.data.results.map((type) => type.name);
+  types.forEach(async (typeName) => {
+    await Type.findOrCreate({
+      where: { name: typeName },
+    });
+  });
+  const allTypes = await Type.findAll();
+  return allTypes;
 };
 
 module.exports = { createType };
