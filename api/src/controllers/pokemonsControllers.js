@@ -7,7 +7,7 @@ const { Op } = require("sequelize");
 const createPokemon = async (
   name,
   image,
-  life,
+  hp,
   attack,
   defense,
   speed,
@@ -18,7 +18,7 @@ const createPokemon = async (
   const newPokemon = await Pokemon.create({
     name,
     image,
-    life,
+    hp,
     attack,
     defense,
     speed,
@@ -44,7 +44,7 @@ const allgetPokemons = async () => {
     await Pokemon.findAll({ include: Type })
   );
   const apiPokemonRaw = (
-    await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=40`)
+    await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=60`)
   ).data.results;
   const promises = apiPokemonRaw.map((data) => axios.get(data.url));
   const dataPokemonsApi = await Promise.all(

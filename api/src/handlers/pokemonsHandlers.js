@@ -7,13 +7,13 @@ const {
 
 //------>>>//--CREA POKEMON en DB--//<<<------//
 const postPokemons = async (req, res) => {
-  const { name, image, life, attack, defense, speed, height, weight, types } =
+  const { name, image, hp, attack, defense, speed, height, weight, types } =
     req.body;
   try {
     const newPokemon = await createPokemon(
       name,
       image,
-      life,
+      hp,
       attack,
       defense,
       speed,

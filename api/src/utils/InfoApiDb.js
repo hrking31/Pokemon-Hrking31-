@@ -8,9 +8,7 @@ const IdApi = (data) => {
     speed: data.stats[5].base_stat,
     height: data.height / 10,
     weight: data.weight / 10,
-    types: data.types.map((element) => {
-      return { name: element.type.name };
-    }),
+    types: data.types.map((ch) => ch.type.name),
     image: data.sprites.other.home.front_default,
   };
 };
@@ -25,9 +23,7 @@ const AllApi = (results) => {
     speed: results.data.stats[5].base_stat,
     height: results.data.height / 10,
     weight: results.data.weight / 10,
-    types: results.data.types.map((element) => {
-      return { name: element.type.name };
-    }),
+    types: results.data.types.map((ch) => ch.type.name),
     image: results.data.sprites.other.home.front_default,
   };
 };
@@ -37,7 +33,7 @@ const cleanArrayDb = (arr) =>
     return {
       id: Elem.id,
       name: Elem.name,
-      life: Elem.life,
+      hp: Elem.hp,
       image: Elem.image,
       attack: Elem.attack,
       defense: Elem.defense,
@@ -54,7 +50,7 @@ const infoDb = (game) => {
   return {
     id: info.id,
     name: info.name,
-    life: info.life,
+    hp: info.hp,
     image: info.image,
     attack: info.attack,
     defense: info.defense,
