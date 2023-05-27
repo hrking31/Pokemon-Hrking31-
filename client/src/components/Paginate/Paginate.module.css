@@ -1,0 +1,38 @@
+.paginate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.paginationItems {
+  display: flex;
+  align-items: center;
+}
+
+.button_paginate {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* .pageNumber {
+  margin: 0 10px;
+  padding: 5px 10px;
+} */
+
+.pageNumber {
+  margin: 0;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
