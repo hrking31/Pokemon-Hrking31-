@@ -4,6 +4,8 @@ import {
   GET_POKEMON_DETAIL,
   NEXT,
   PREV,
+  SET_LOADING,
+  SET_ARRAY,
 } from "./types";
 
 const initialState = {
@@ -11,6 +13,7 @@ const initialState = {
   pokemons: [],
   detailPokemon: [],
   numPage: 1,
+  loading: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -39,6 +42,18 @@ const rootReducer = (state = initialState, action) => {
 
     case PREV:
       return { ...state, numPage: state.numPage - 1 };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: !state.loading,
+      };
+
+    case SET_ARRAY:
+      return {
+        ...state,
+        detailPokemon: action.payload,
+      };
 
     default:
       return { ...state };
