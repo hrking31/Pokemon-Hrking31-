@@ -1,7 +1,13 @@
 export const GET_POKEMONS = "GET_POKEMONS";
 export const GET_POKEMON = "GET_POKEMON";
 export const GET_POKEMON_DETAIL = "GET_POKEMON_DETAIL";
+export const GET_TYPES = "GET_TYPES";
 export const NEXT = "NEXT";
 export const PREV = "PREV";
 export const SET_LOADING = "SET_LOADING";
 export const SET_ARRAY = "SET_ARRAY";
+export const RESET = "RESET";
+export const ORDER_TYPES = "ORDER_TYPES";
+export const ORDER_CREATED = "ORDER_CREATED";
+export const ORDER_NAME = "ORDER_NAME";
+export const ORDER_ATTACK = "ORDER_ATTACK";

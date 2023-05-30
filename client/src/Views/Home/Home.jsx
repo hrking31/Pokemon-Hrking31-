@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemons } from "../../redux/actions";
+import { getPokemons, getTypes } from "../../redux/actions";
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getPokemons());
+    dispatch(getTypes());
   }, [dispatch]);
 
   return (
