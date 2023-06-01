@@ -72,7 +72,7 @@ const searchgetPokemons = async (name) => {
     return [...databasePokemons];
   } else {
     const apiPokemonRaw = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${name}`
+      `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
     );
     const apiPokemons = [IdApi(apiPokemonRaw.data)];
     return [...apiPokemons];

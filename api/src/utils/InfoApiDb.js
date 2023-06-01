@@ -10,6 +10,7 @@ const IdApi = (data) => {
     weight: data.weight / 10,
     types: data.types.map((ch) => ch.type.name),
     image: data.sprites.other.home.front_default,
+    created: "false",
   };
 };
 
@@ -25,6 +26,7 @@ const AllApi = (results) => {
     weight: results.data.weight / 10,
     types: results.data.types.map((ch) => ch.type.name),
     image: results.data.sprites.other.home.front_default,
+    created: "false",
   };
 };
 
