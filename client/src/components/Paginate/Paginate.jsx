@@ -31,9 +31,11 @@ export default function Paginate(props) {
         </div>
       )}
 
-      <h3 className={style.pageNumber}>{numPage}</h3>
-
       {numPage <= props.cantPages && (
+        <h3 className={style.pageNumber}>{numPage}</h3>
+      )}
+
+      {numPage < props.cantPages && (
         <div className={style.paginationItems}>
           <p className={style.pageNumber}>{numPage + 1}</p>
           <button className={style.button_paginate} onClick={next}>

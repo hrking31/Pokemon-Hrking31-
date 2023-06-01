@@ -18,7 +18,7 @@ export default function Detail() {
       <Link to="/">
         <button>Landing</button>
       </Link>
-      <Link to="/Home">
+      <Link to="/home">
         <button>Home</button>
       </Link>
       <Link to="/create">

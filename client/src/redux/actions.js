@@ -4,6 +4,7 @@ import {
   GET_POKEMON,
   GET_POKEMON_DETAIL,
   GET_TYPES,
+  POST_POKEMON,
   NEXT,
   PREV,
   SET_LOADING,
@@ -54,6 +55,17 @@ export const getTypes = () => {
   };
 };
 
+export const postPokemon = (pokemonData) => {
+  return async (dispatch) => {
+    const apiData = await axios.post(
+      "http://localhost:3001/pokemons",
+      pokemonData
+    );
+    const pokemon = apiData.data;
+    dispatch({ type: POST_POKEMON, apidata: pokemon });
+  };
+};
+
 export const nextPage = () => {
   return {
     type: NEXT,
@@ -82,6 +94,20 @@ export const orderTypes = (types) => {
   return {
     type: ORDER_TYPES,
     payload: types,
+  };
+};
+
+export const orderAttack = (attack) => {
+  return {
+    type: ORDER_ATTACK,
+    payload: attack,
+  };
+};
+
+export const orderCreated = (created) => {
+  return {
+    type: ORDER_CREATED,
+    payload: created,
   };
 };
 

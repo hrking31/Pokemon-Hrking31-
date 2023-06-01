@@ -129,7 +129,7 @@ export default function Card(props) {
         className={style.card}
         style={{ "--color1": color1, "--color2": color2 }}
       >
-        <h2>{props.name}</h2>
+        <h2 className={style.name}>{props.name}</h2>
         <h2>{props.types.join(", ")}</h2>
         <Link to={`/detail/${props.id}`}>
           <img

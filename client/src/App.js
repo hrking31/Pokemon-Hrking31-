@@ -12,8 +12,7 @@ function App() {
         location.pathname !== "/create" &&
         !/^\/detail\/(\d+|[a-fA-F0-9]{8}(?:-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12})$/.test(
           location.pathname
-        ) &&
-        location.pathname !== "/" && <NavBar />}
+        ) && <NavBar />}
       <Route exact path="/" component={Landing} />
       <Route path="/home" render={() => <Home />} />
       <Route exact path="/detail/:id" component={Detail} />

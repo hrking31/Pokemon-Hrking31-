@@ -6,6 +6,7 @@ import {
   orderName,
   orderTypes,
   orderCreated,
+  orderAttack,
   reset,
 } from "../../redux/actions";
 
@@ -33,6 +34,20 @@ export default function NavBar(props) {
     dispatch(orderTypes(value));
   }
 
+  function handlerAttack(event) {
+    event.preventDefault();
+    const { value } = event.target;
+    setValues(event.target.value);
+    dispatch(orderAttack(value));
+  }
+
+  function handlerCreated(event) {
+    event.preventDefault();
+    const { value } = event.target;
+    setValues(event.target.value);
+    dispatch(orderCreated(value));
+  }
+
   function resetButton() {
     dispatch(reset());
     setValues({
@@ -42,8 +57,6 @@ export default function NavBar(props) {
       value3: "DEFAULT",
       value4: "DEFAULT",
     });
-
-    console.log("==>", types);
   }
 
   return (
@@ -72,6 +85,20 @@ export default function NavBar(props) {
               {type.name}
             </option>
           ))}
+        </select>
+        <select onChange={handlerAttack} name="attack" value={values.value3}>
+          <option value="DEFAULT" disabled>
+            Select Attack
+          </option>
+          <option value="asc">Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+        <select onChange={handlerCreated} name="created" value={values.value4}>
+          <option value="DEFAULT" disabled>
+            Select Created
+          </option>
+          <option value="true">Database</option>
+          <option value="false">Api</option>
         </select>
       </div>
       <button onClick={resetButton}>RESET</button>
