@@ -1,3 +1,4 @@
+import style from "../NavBar/NavBar.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -60,48 +61,50 @@ export default function NavBar(props) {
   }
 
   return (
-    <div>
-      <Link to="/create">
-        <button>CREATE</button>
-      </Link>
-      <Link to="/">
-        <button>LANDING</button>
-      </Link>
-      <SearchBar onSearch={props.onSearch} />
-      <div>
-        <select onChange={handlerName} name="name" value={values.value1}>
-          <option value="DEFAULT" disabled>
-            Select Name
-          </option>
-          <option value="asc">AZ</option>
-          <option value="desc">ZA</option>
-        </select>
-        <select onChange={handlerTypes} name="types" value={values.value2}>
-          <option value="DEFAULT" disabled>
-            Select Types
-          </option>
-          {types.map((type) => (
-            <option key={type.id} value={type.name} disabled={type.disabled}>
-              {type.name}
-            </option>
-          ))}
-        </select>
-        <select onChange={handlerAttack} name="attack" value={values.value3}>
-          <option value="DEFAULT" disabled>
-            Select Attack
-          </option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
-        </select>
-        <select onChange={handlerCreated} name="created" value={values.value4}>
-          <option value="DEFAULT" disabled>
-            Select Created
-          </option>
-          <option value="true">Database</option>
-          <option value="false">Api</option>
-        </select>
+    <div className={style.nav}>
+      <div className={style.navButtons}>
+        <Link to="/create">
+          <button>Create</button>
+        </Link>
+        <Link to="/">
+          <button>About</button>
+        </Link>
       </div>
-      <button onClick={resetButton}>RESET</button>
+      <SearchBar onSearch={props.onSearch} />
+      <select onChange={handlerName} name="name" value={values.value1}>
+        <option value="DEFAULT" disabled>
+          Select Name
+        </option>
+        <option value="asc">AZ</option>
+        <option value="desc">ZA</option>
+      </select>
+      <select onChange={handlerTypes} name="types" value={values.value2}>
+        <option value="DEFAULT" disabled>
+          Select Types
+        </option>
+        {types.map((type) => (
+          <option key={type.id} value={type.name} disabled={type.disabled}>
+            {type.name}
+          </option>
+        ))}
+      </select>
+      <select onChange={handlerAttack} name="attack" value={values.value3}>
+        <option value="DEFAULT" disabled>
+          Select Attack
+        </option>
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
+      </select>
+      <select onChange={handlerCreated} name="created" value={values.value4}>
+        <option value="DEFAULT" disabled>
+          Select Created
+        </option>
+        <option value="true">Database</option>
+        <option value="false">Api</option>
+      </select>
+      <div className={style.navButtons_reset}>
+        <button onClick={resetButton}>Reset</button>
+      </div>
     </div>
   );
 }

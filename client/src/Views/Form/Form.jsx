@@ -93,22 +93,15 @@ export default function Form() {
     setErrors({ ...errors, ...newErrors });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    dispatch(postPokemon({ ...form }));
-    validate({ ...form });
+    try {
+      await dispatch(postPokemon({ ...form }));
+      alert(`${form.name} creado exitosamente`);
+    } catch (error) {
+      alert(`Error al crear el Pokemon: ${error.message}`);
+    }
   };
-
-  // const submitHandler = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     await dispatch(postPokemon({ ...form }));
-  //     alert("Pokemon creado exitosamente");
-  //   } catch (error) {
-  //     alert(`Error al crear el Pokemon: ${error.message}`);
-  //   }
-  //   validate({ ...form });
-  // };
 
   return (
     <form onSubmit={submitHandler}>
@@ -185,7 +178,7 @@ export default function Form() {
           <input
             type="number"
             name="defense"
-            value={form.adefense}
+            value={form.defense}
             onChange={changeHandler}
             placeholder="  Defense..."
           />
@@ -227,8 +220,8 @@ export default function Form() {
           />
           {errors.weight && <span>{errors.weight}</span>}
         </div>
-
-        <div className={style.form_container_checkbox}>
+        <label>Select 2 types maximum</label>
+        <div className={style.container_checkbox}>
           {types.map((type) => (
             <div key={type.id}>
               <input
@@ -243,7 +236,7 @@ export default function Form() {
           ))}
         </div>
 
-        <button className={style.button} type="submit">
+        <button className={style.button_create} type="submit">
           CREATE !!!
         </button>
       </div>

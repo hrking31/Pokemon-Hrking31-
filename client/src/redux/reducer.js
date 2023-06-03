@@ -147,7 +147,7 @@ const rootReducer = (state = initialState, action) => {
 
     //------>>>//--REINICIA LOS FILTROS--//<<<------//
     case RESET:
-      return { ...state, pokemons: state.originPokemons };
+      return { ...state, pokemons: state.originPokemons, numPage: 1 };
 
     default:
       return { ...state };

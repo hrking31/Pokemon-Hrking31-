@@ -18,6 +18,10 @@
   animation: entrada-card 0.5s ease-in-out;
 }
 
+.card:hover {
+  opacity: 0.8;
+}
+
 .cardImage {
   width: 100%;
   height: auto;
@@ -25,6 +29,15 @@
   align-items: center;
   justify-content: center;
   object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.cardImage:hover {
+  transform: rotate(30deg) translateY(-5px);
+}
+
+.cardImage:hover img {
+  transform: scale(1.2);
 }
 
 .name {
@@ -36,10 +49,6 @@
   text-transform: capitalize;
   text-align: center;
   transform: translateX(-50%);
-}
-
-.card:hover {
-  opacity: 0.8;
 }
 
 @keyframes entrada-card {

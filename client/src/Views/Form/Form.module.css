@@ -3,22 +3,17 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  /* background-color: #1014c5; */
-  /* background-image: linear-gradient(
-    rgba(0, 0, 255, 0.774),
-    rgba(0, 0, 161, 0.562)
-  ); */
   background: rgba(59, 65, 64, 0.5);
   border-radius: 10px;
   box-shadow: 0 8px 32px 0 rgba(92, 155, 143, 0.37);
   font-family: Arial, sans-serif;
   margin: 0 220px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 
 .title {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -28,9 +23,38 @@
 }
 
 .container_checkbox {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  background: #a4a6a7;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.container_checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container_checkbox > div {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.container_checkbox label {
+  font-weight: bold;
+}
+
+.container_checkbox input[type="checkbox"] {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 2px solid #ccc;
+  width: 100px;
+  color: #070707bd;
 }
 
 .form_container label {
@@ -38,7 +62,7 @@
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #e0be12;
+  color: black;
   text-align: left;
 }
 
@@ -53,21 +77,26 @@
   margin-bottom: 20px;
 }
 
-.button {
-  width: 160px;
-  height: 40px;
-  margin-top: 10px;
-  border-radius: 20px;
-  background-color: #e0be12;
-  color: #b22222;
+.button_create {
+  margin-right: 1rem;
+  border-width: 1px;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  color: #070707bd;
+  background-color: #a4a6a7;
+  border: 2px solid #007bff;
+  border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 16px;
-  text-shadow: 2px 2px 30px #b22222;
-  border: 4px solid red;
-  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.3);
-  margin-bottom: 40px;
-  margin-top: 60px;
+  box-shadow: 0 0 15px 5px #d1c4e9;
 }
+
+.button_create:hover {
+  background-color: #90a4ae;
+  cursor: pointer;
+}
+
 .form_container span {
   color: red;
   margin-top: 4px;
@@ -80,27 +109,28 @@
 .img {
   width: 200px;
   height: auto;
-  margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
 }
 
 .button_container button {
-  margin-right: 1.8rem;
+  margin-top: 20px;
+  margin-right: 3rem;
+  margin-left: 3rem;
   border-width: 1px;
   padding: 0.4rem 0.6rem;
   font-size: 1rem;
   line-height: 1.25rem;
   font-weight: bold;
-  color: #b22222;
-  background-color: #e0be12;
-  border: 4px solid blue;
+  color: #070707bd;
+  background-color: #a4a6a7;
+  border: 2px solid #007bff;
   border-radius: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 15px 5px #d1c4e9;
 }
 
-.button_container:button hover {
-  background-color: rgb(245, 166, 8);
+.button_container button:hover {
+  background-color: #90a4ae;
   cursor: pointer;
 }
