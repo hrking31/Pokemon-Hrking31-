@@ -1,20 +1,20 @@
 import style from "./Detail.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPokemonById } from "../../redux/actions";
+import { getPokemonById, setLoading } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import LoadingCircle from "../../components/LoadingCircle/LoadingCircle";
 import {
   ColorForType,
   ColorForType1,
 } from "../../components/utils/ColorForType";
-import LoadingCircle from "../../components/LoadingCircle/LoadingCircle";
 
 export default function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const pokemon = useSelector((state) => state.detailPokemon);
-  const [loading, setLoading] = useState(true);
+  const loading = useSelector((state) => state.loading);
 
   let color1, color2;
   if (pokemon && pokemon.types) {
@@ -23,7 +23,8 @@ export default function Detail() {
   }
 
   useEffect(() => {
-    dispatch(getPokemonById(id)).then(() => setLoading(false));
+    dispatch(setLoading());
+    dispatch(getPokemonById(id));
   }, [dispatch, id]);
 
   if (loading) {

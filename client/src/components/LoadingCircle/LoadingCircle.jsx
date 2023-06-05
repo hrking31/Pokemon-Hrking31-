@@ -1,8 +1,12 @@
 import React from "react";
-import styles from "../LoadingCircle/LoadingCircle.module.css";
+import style from "../LoadingCircle/LoadingCircle.module.css";
 
 const LoadingCircle = () => {
-  return <div className={styles.loader}></div>;
+  return (
+    <div className={style.loader_container}>
+      <div className={style.loader}></div>;
+    </div>
+  );
 };
 
 export default LoadingCircle;

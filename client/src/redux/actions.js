@@ -18,18 +18,15 @@ import {
 
 export const getPokemons = () => {
   return async function (dispatch) {
-    dispatch({ type: SET_LOADING });
     const apiData = await axios.get("http://localhost:3001/pokemons");
     const pokemon = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemon });
     dispatch({ type: SET_LOADING });
-    dispatch({ type: SET_ARRAY, payload: [] });
   };
 };
 
 export const getPokemon = (name) => {
   return async function (dispatch) {
-    dispatch({ type: SET_LOADING });
     const apiData = await axios.get(
       `http://localhost:3001/pokemons?name=${name}`
     );
@@ -44,6 +41,7 @@ export const getPokemonById = (id) => {
     const apiData = await axios.get(`http://localhost:3001/pokemons/${id}`);
     const pokemon = apiData.data;
     dispatch({ type: GET_POKEMON_DETAIL, payload: pokemon });
+    dispatch({ type: SET_LOADING });
   };
 };
 
@@ -80,6 +78,13 @@ export const prevPage = () => {
 export const setLoading = () => {
   return {
     type: SET_LOADING,
+  };
+};
+
+export const setArray = () => {
+  return {
+    type: SET_ARRAY,
+    payload: [],
   };
 };
 

@@ -28,6 +28,7 @@
   margin-bottom: 30px;
   background: var(--color2);
   box-shadow: 0 0 15px 5px rgba(240, 244, 245, 0.733);
+  animation: entrada-card 0.6s ease-in-out;
 }
 
 .infoCharacter {
@@ -46,6 +47,7 @@
   font-size: 24px;
   margin: 0;
   padding-left: 5px;
+  text-transform: capitalize;
 }
 
 .containerInfo span {
@@ -106,4 +108,15 @@
   border-radius: 0.5rem;
   cursor: pointer;
   box-shadow: 10px 0 25px 3px #d1c4e9;
+}
+
+@keyframes entrada-card {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

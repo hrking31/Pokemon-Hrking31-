@@ -16,13 +16,14 @@ export default function CardsContainer() {
 
   let viewPokemons = pokemons.slice(initial, finish);
 
+  if (loading) {
+    return <LoadingCircle />;
+  }
+
   return (
     <div>
       <div className={style.cards_container}>
-        {loading ? (
-          <LoadingCircle />
-        ) : (
-          viewPokemons &&
+        {viewPokemons &&
           viewPokemons.map((pokemon) => {
             return (
               <Card
@@ -39,8 +40,7 @@ export default function CardsContainer() {
                 types={pokemon.types}
               />
             );
-          })
-        )}
+          })}
       </div>
       <div>
         {!loading ? (

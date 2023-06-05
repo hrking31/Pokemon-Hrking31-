@@ -2,7 +2,7 @@ import style from "../SearchBar/SearchBar.module.css";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemon } from "../../redux/actions";
+import { getPokemon, setLoading } from "../../redux/actions";
 
 export default function Searchbar() {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ export default function Searchbar() {
   };
 
   const OnSearch = () => {
+    dispatch(setLoading());
     dispatch(getPokemon(name));
   };
 
