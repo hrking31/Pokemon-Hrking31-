@@ -6,7 +6,11 @@ const pokemonsRouter = require("./pokemonsRouter");
 const typesRouter = require("./typesRouter");
 
 const router = Router();
-router.use(cors());
+app.use(
+  cors({
+    origin: "http://192.168.1.18:3000",
+  })
+);
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
