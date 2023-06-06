@@ -18,7 +18,7 @@ import {
 
 export const getPokemons = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/pokemons");
+    const apiData = await axios.get("http://192.168.1.18:3001/pokemons");
     const pokemon = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemon });
     dispatch({ type: SET_LOADING });
@@ -47,7 +47,7 @@ export const getPokemonById = (id) => {
 
 export const getTypes = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/types");
+    const apiData = await axios.get("http://192.168.1.18:3001/types");
     const pokemon = apiData.data;
     dispatch({ type: GET_TYPES, payload: pokemon });
   };
